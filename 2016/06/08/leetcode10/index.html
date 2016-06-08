@@ -1,0 +1,574 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="leetcode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Leetcode: Regular Expression MatchingImplement regular expression matching with support for ‘.’ and ‘*’.  
+
+‘.’ Matches any single character.‘‘ Matches zero or more of the preceding element.The matchi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Regular Expression Matching">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/leetcode10/index.html">
+<meta property="og:site_name" content="Lebi's blog">
+<meta property="og:description" content="Leetcode: Regular Expression MatchingImplement regular expression matching with support for ‘.’ and ‘*’.  
+
+‘.’ Matches any single character.‘‘ Matches zero or more of the preceding element.The matchi">
+<meta property="og:updated_time" content="2016-06-08T06:02:15.534Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Regular Expression Matching">
+<meta name="twitter:description" content="Leetcode: Regular Expression MatchingImplement regular expression matching with support for ‘.’ and ‘*’.  
+
+‘.’ Matches any single character.‘‘ Matches zero or more of the preceding element.The matchi">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/08/leetcode10/"/>
+
+  <title> Regular Expression Matching | Lebi's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lebi's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">这个人很懒，什么都没留下</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Regular Expression Matching
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-06-08T13:30:23+08:00" content="2016-06-08">
+              2016-06-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Leetcode-Regular-Expression-Matching"><a href="#Leetcode-Regular-Expression-Matching" class="headerlink" title="Leetcode: Regular Expression Matching"></a>Leetcode: Regular Expression Matching</h3><p>Implement regular expression matching with support for ‘.’ and ‘*’.  </p>
+<blockquote>
+<p>‘.’ Matches any single character.<br>‘<em>‘ Matches zero or more of the preceding element.<br>The matching should cover the entire input string (not partial).The function prototype should be:bool isMatch(const char </em>s, const char <em>p)<br>Some examples:<br>isMatch(“aa”,”a”) → false<br>isMatch(“aa”,”aa”) → true<br>isMatch(“aaa”,”aa”) → false<br>isMatch(“aa”, “a</em>“) → true<br>isMatch(“aa”, “.<em>“) → true<br>isMatch(“ab”, “.</em>“) → true<br>isMatch(“aab”, “c<em>a</em>b”) → true</p>
+</blockquote>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>实现正则表达式中的’.’和’*’，输入两个字符串，返回是否匹配。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>&emsp;&emsp;使用DFS的方法，主要思路就是例如当a*ab和aaab进行匹配时，第一个字符匹配且第二个字符为*，那么先令ab和aaab进行匹配。因为ab和aaab匹配失败，再回溯到之前，并将s串后移一位，即匹配a*ab和aab。使用递归，这就是一个很典型的DFS的实现。<br>&emsp;&emsp;在实现时需要考虑几个特殊的测试用例：当s串为空；当p串为空。<br>&emsp;&emsp;使用回溯的做法，当输入类似为a*aab和aaaab时，需要进行多次的回溯，时间复杂度是O(n!)，最后算法在leetcode上提交约在50%。</p>
+<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(<span class="keyword">char</span>[] s,<span class="keyword">int</span> s1,<span class="keyword">char</span>[] p,<span class="keyword">int</span> p1)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> slen=s.length-s1,plen=p.length-p1;</span><br><span class="line">	<span class="comment">//s串为空，例如''和'a*c'</span></span><br><span class="line">   	<span class="keyword">if</span>(slen==<span class="number">0</span>)&#123;</span><br><span class="line">   		<span class="keyword">if</span>(plen%<span class="number">2</span>!=<span class="number">0</span>)</span><br><span class="line">   			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">   		<span class="keyword">for</span>(<span class="keyword">int</span> i=p1+<span class="number">1</span>;i&lt;p.length;i+=<span class="number">2</span>)</span><br><span class="line">   			<span class="keyword">if</span>(p[i]!=<span class="string">'*'</span>)</span><br><span class="line">   				<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">   		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">   	&#125;</span><br><span class="line">   	</span><br><span class="line">   	<span class="keyword">if</span>(plen==<span class="number">0</span>)</span><br><span class="line">   		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">   	</span><br><span class="line">   	<span class="keyword">if</span>(plen==<span class="number">1</span>)</span><br><span class="line">   		<span class="keyword">if</span>(slen==<span class="number">1</span>&amp;&amp;(s[s1]==p[p1]||p[p1]==<span class="string">'.'</span>))</span><br><span class="line">   			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">   		<span class="keyword">else</span></span><br><span class="line">   			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">   	</span><br><span class="line">   	<span class="keyword">if</span>(p[p1+<span class="number">1</span>]!=<span class="string">'*'</span>)&#123;</span><br><span class="line">       	<span class="keyword">if</span>(p[p1]==<span class="string">'.'</span>||p[p1]==s[s1])</span><br><span class="line">       		<span class="keyword">return</span> check(s,s1+<span class="number">1</span>, p,p1+<span class="number">1</span>);</span><br><span class="line">       	<span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="keyword">if</span>(p[p1]==<span class="string">'.'</span>||p[p1]==s[s1])</span><br><span class="line">   		<span class="keyword">if</span>(check(s, s1,p,p1+<span class="number">2</span>))</span><br><span class="line">   			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">   		<span class="keyword">else</span></span><br><span class="line">   			<span class="keyword">return</span> check(s,s1+<span class="number">1</span>, p,p1);</span><br><span class="line">   	<span class="keyword">else</span></span><br><span class="line">   		<span class="keyword">return</span> check(s,s1, p,p1+<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">   	<span class="keyword">return</span> check(s.toCharArray(),<span class="number">0</span>,p.toCharArray(),<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag">#leetcode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/07/leetcode4/" rel="next" title="Median of Two Sorted Arrays">
+                <i class="fa fa-chevron-left"></i> Median of Two Sorted Arrays
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Lebi" />
+          <p class="site-author-name" itemprop="name">Lebi</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-Regular-Expression-Matching"><span class="nav-number">1.</span> <span class="nav-text">Leetcode: Regular Expression Matching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#代码实现"><span class="nav-number">3.0.1.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lebi</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

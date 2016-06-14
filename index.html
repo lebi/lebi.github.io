@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -261,7 +261,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-06-14T16:49:48+08:00" content="2016-06-14">
               2016-06-14
             </time>
@@ -294,9 +294,9 @@
           
             <h3 id="Don’t-starve-together-独立服务器搭建指南"><a href="#Don’t-starve-together-独立服务器搭建指南" class="headerlink" title="Don’t starve together 独立服务器搭建指南"></a>Don’t starve together 独立服务器搭建指南</h3><p>&emsp;&emsp;在和朋友一起玩Don’t starve together的时候发现游戏玩到后期总是会变的非常不流畅，经过测试后排除网络问题，主要是因为联机玩DST时创建世界的那台主机因为需要同时处理画面和世界的刷新，玩到后期主机要处理的太多，其他联机的用户就会卡顿。为了解决这个问题我也是头疼了很久，最后发现在主机上搭建一个独立服务器，所有人都再连接到这个独立服务器上，卡顿问题就能很好的解决了。当然这个独立服务器并不需要一台独立的电脑，只需要一起玩游戏的某个人开一个独立服务器，大家再连接到这个独立服务器里，就不会卡顿了。  </p>
 <h4 id="搭建全过程"><a href="#搭建全过程" class="headerlink" title="搭建全过程"></a>搭建全过程</h4><h5 id="1-购买DST的正版"><a href="#1-购买DST的正版" class="headerlink" title="1.购买DST的正版"></a>1.购买DST的正版</h5><h5 id="2-创建世界"><a href="#2-创建世界" class="headerlink" title="2.创建世界"></a>2.创建世界</h5><p>&emsp;&emsp;首先打开饥荒，先创建一个世界，选择好mod，创建的选项等，然后点创建世界，等待世界创建成功后断开世界。需要记住你创建的这个世界是第几个存档，如图例子就是第三个存档。<br><img src="/img/DST1.png" alt="">  </p>
-<h5 id="3-配置"><a href="#3-配置" class="headerlink" title="3.配置"></a>3.配置</h5><p>&emsp;&emsp;在世界创建成功后，就能在在目录“文档/Klei/DoNotStarveTogether/Cluster_3”(对应你创建的第几个存档)，这个目录下看到几个文件：包括Master(主世界数据)，Caves(洞穴实际数据，如果选择添加洞穴的话)，cluster.ini(世界的配置文件)。然后需要在这个目录中添加一个文件叫cluster_token.txt，下面介绍在这个文件中需要写入什么东西。<br>&emsp;&emsp;进入DST后的这个页面，点击下面的个人资料<br><img src="/img/DST2.jpg" alt=""><br>&emsp;&emsp;出现下面这个页面，点击generate server token按钮，将上面出现的token复制到cluster_token.txt中，就可以了。<br><img src="/img/DST3.jpg" alt="">  </p>
+<h5 id="3-配置"><a href="#3-配置" class="headerlink" title="3.配置"></a>3.配置</h5><p>&emsp;&emsp;在世界创建成功后，就能在在目录“文档/Klei/DoNotStarveTogether/Cluster_3”(对应你创建的第几个存档)，这个目录下看到几个文件：包括Master(主世界数据)，Caves(洞穴实际数据，如果选择添加洞穴的话)，cluster.ini(世界的配置文件)。然后需要在这个目录中添加一个文件叫cluster_token.txt，下面介绍在这个文件中需要写入什么东西。<br>&emsp;&emsp;进入DST后的这个页面，点击下面的个人资料<br><img src="/img/DST2.jpg" alt=""><br>&emsp;&emsp;出现下面这个页面，点击generate server token按钮，将上面出现的token复制到cluster_token.txt中，就可以了。如果没这一步在创建世界的时候会出错，估计是Klei对防盗版的一个限制。<br><img src="/img/DST3.jpg" alt="">  </p>
 <h5 id="4-创建脚本"><a href="#4-创建脚本" class="headerlink" title="4.创建脚本"></a>4.创建脚本</h5><p>&emsp;&emsp;将上述准备工作做完后，就进入最后一步，创建启动脚本和启动服务器了。进入steam的安装目录，进入steamapps/common/Don’t Starve Together/bin，可以看到一个dontstarve_dedicated_server_nullrenderer.exe这个文件，从这个应用程序的名字就可以知道，就需要通过他来创建一个无画面的服务器。<br>&emsp;&emsp;创建一个文件start.bat,在里面写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_3 -shard Master</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;当然Cluster_3这里改成你对应的存档<br>&emsp;&emsp;创建一个文件start_cave.bat,在里面写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_3 -shard Caves</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;当然Cluster_3这里改成你对应的存档，然后创建一个文件start_cave.bat,在里面写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_3 -shard Caves</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;写完后就将这两个脚本启动就可以了。<br><img src="/img/DST4.jpg" alt=""></p>
 <h5 id="5-加入游戏"><a href="#5-加入游戏" class="headerlink" title="5.加入游戏"></a>5.加入游戏</h5><p>&emsp;&emsp;选择浏览游戏，搜索创建的服务器名字(本机的话需要到LAN中才能找到世界)，就能找到这个世界并加入游戏了，亲测玩到后期也一点都不卡哦。<br><img src="/img/DST5.jpg" alt=""></p>
 
@@ -361,7 +361,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-06-08T13:30:23+08:00" content="2016-06-08">
               2016-06-08
             </time>
@@ -460,7 +460,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-06-07T19:02:54+08:00" content="2016-06-07">
               2016-06-07
             </time>
@@ -558,7 +558,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-06-07T13:26:02+08:00" content="2016-06-07">
               2016-06-07
             </time>
@@ -668,7 +668,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">4</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -678,7 +678,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -722,7 +722,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
